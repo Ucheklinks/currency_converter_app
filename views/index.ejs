@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body>
+    <nav class="bg-lime-300 justify-items-center p-4 text-4xl">
+      <p>
+        This is a currency exchange app from USD to the Euro, the Naira and the
+        British Pound
+      </p>
+    </nav>
+
+    <div class="justify-items-center pt-4 text-blue-700">
+      <h1>
+        Enter the exchange currencies in the form below. You will be notified if
+        exchange of your currency is not available
+      </h1>
+    </div>
+
+    <div class="justify-items-center flex h-screen p-10">
+      <form
+        action="/submit"
+        method="post"
+        class="max-w-2xl min-h-1/4 max-h-1/2 bg-lime-200 p-6 rounded flex flex-col m-auto"
+      >
+        <div class="inline-flex mb-8 my-auto">
+          <label for="USD" class="mr-4 text-lg">From</label>
+          <input
+            type="text"
+            name="USD"
+            class="bg-white rounded mr-4 px-1 text-center"
+            placeholder="currency in USD"
+          />
+
+          <label for="cars" class="mr-4 text-lg">To</label>
+          <select name="to" id="currencies" class="bg-white flex-1">
+            <option value="NGN">NGN</option>
+            <option value="EUR">EURO</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+
+        <div class="justify-items-center my-auto mb-4">
+          <%if (locals.content != 0){%>
+          <p class="text-red-500"><%=content%></p>
+          <%}%>
+        </div>
+
+        <div class="justify-items-center my-auto">
+          <input type="submit" class="bg-gray-400 p-2 rounded mt-4 mb-4" />
+
+          <p class="text-red-500">currency error</p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
